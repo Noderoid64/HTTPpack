@@ -9,20 +9,30 @@ namespace Hello.Http.Model
     public class AcceptValue : IParseable
     {
         public AcceptParam param { get; set; }
-        public MediaRange range { get; set; }
+        public IParseable content { get; set; }
 
-        public AcceptValue(AcceptParam param)
+        public AcceptValue(IParseable content)
         {
-            this.param = param;
+            this.content = content;
         }
         public byte[] GetBytes(Encoding encoder)
         {
-            return param.GetBytes(encoder).Concat(range.GetBytes(encoder)).ToArray();
+            return param.GetBytes(encoder).Concat(content.GetBytes(encoder)).ToArray();
         }
 
         public string GetString()
+        {            
+            return content.GetString() + param?.GetString();            
+        }
+
+        public void SetFromString(string value)
         {
-            return param.GetString() + range.GetString();
+            throw new NotImplementedException();
+        }
+
+        public void SetFromBytes(byte[] value, Encoding encoder)
+        {
+            throw new NotImplementedException();
         }
     }
 }

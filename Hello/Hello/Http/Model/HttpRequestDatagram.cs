@@ -30,12 +30,16 @@ namespace Hello.Http.Model
 
         public override byte[] GetBytes(Encoding encoder)
         {
-            throw new NotImplementedException();
+            return encoder.GetBytes(Method.ToString() + " " + Uri)
+                .Concat(Version.GetBytes(encoder)).ToArray()
+                .Concat(encoder.GetBytes("\r\n")).ToArray()
+                .Concat(header.GetBytes(encoder)).ToArray()
+                .Concat(body.GetBytes(encoder)).ToArray();
         }
 
         public override string GetString()
         {
-            throw new NotImplementedException();
+            return Method.ToString() + " " + Uri + " " + Version.GetString() + "\r\n" + header.GetString() + body?.GetString();
         }
     }
 }

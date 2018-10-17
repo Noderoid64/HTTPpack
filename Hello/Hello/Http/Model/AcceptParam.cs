@@ -43,5 +43,15 @@ namespace Hello.Http.Model
                 return null;
             return ";q=" + Math.Round((float) qValue,3); //RFC 2616 3.9 Quality Values
         }
+
+        public void SetFromBytes(byte[] value, Encoding encoder)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetFromString(string value)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

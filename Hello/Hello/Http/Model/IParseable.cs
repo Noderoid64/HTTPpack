@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace Hello.Http.Model
 {
-    interface IParseable
+   public interface IParseable
     {
         byte[] GetBytes(Encoding encoder);
         string GetString();
+        void SetFromString(string value);
+        void SetFromBytes(byte[] value, Encoding encoder);
     }
 }

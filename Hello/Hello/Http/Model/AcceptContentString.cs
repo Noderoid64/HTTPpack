@@ -6,16 +6,22 @@ using System.Threading.Tasks;
 
 namespace Hello.Http.Model
 {
-    public class HttpBody : IParseable
+    public class AcceptContentString : IParseable
     {
+        private string content;
+
+        public AcceptContentString(string content)
+        {
+            this.content = content;
+        }
         public byte[] GetBytes(Encoding encoder)
         {
-            return null;
+            return encoder.GetBytes(content);
         }
 
         public string GetString()
         {
-            return null;
+            return content;
         }
 
         public void SetFromBytes(byte[] value, Encoding encoder)
@@ -25,7 +31,7 @@ namespace Hello.Http.Model
 
         public void SetFromString(string value)
         {
-            throw new NotImplementedException();
+            content = value;
         }
     }
 }

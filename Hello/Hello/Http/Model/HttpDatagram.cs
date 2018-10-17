@@ -23,5 +23,15 @@ namespace Hello.Http.Model
         public abstract byte[] GetBytes(Encoding encoder);
 
         public abstract string GetString();
+
+        public void SetFromString(string value)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetFromBytes(byte[] value, Encoding encoder)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

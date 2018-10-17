@@ -26,5 +26,15 @@ namespace Hello.Http.Model
         {
             return "HTTP/" + Major.ToString() + "." + Minor.ToString();
         }
+
+        public void SetFromString(string value)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetFromBytes(byte[] value, Encoding encoder)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

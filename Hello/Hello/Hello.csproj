@@ -60,6 +60,7 @@
     <Compile Include="Http\Headers\GeneralHeader.cs" />
     <Compile Include="Http\Headers\RequestHeader.cs" />
     <Compile Include="Http\Headers\ResponseHeader.cs" />
+    <Compile Include="Http\Model\AcceptContentString.cs" />
     <Compile Include="Http\Model\AcceptParam.cs" />
     <Compile Include="Http\Model\AcceptValue.cs" />
     <Compile Include="Http\Model\HttpBody.cs" />

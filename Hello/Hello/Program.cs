@@ -30,9 +30,11 @@ namespace Hello
         static void Main(string[] args)
         {
 
-            AcceptParam a = new AcceptParam();
-            a.Qvalue = 0.71323456765f;
-            Console.WriteLine(a.Qvalue);
+            HttpDatagram datagram = new HttpRequestDatagram(HttpMethods.GET, "/Hello/myUri", new HttpVersion(1,1));
+            datagram.header = new HttpHeader();
+            datagram.header.SetField(new HttpHeaderField("Host", new AcceptValue(new AcceptContentString("123.245.164.234"))));
+
+            Console.WriteLine(datagram.GetString());
 
 
             //IPEndPoint destination = new IPEndPoint(IPAddress.Parse(ip), int.Parse(port));

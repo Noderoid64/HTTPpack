@@ -16,9 +16,29 @@ namespace Hello.Http.Model
             return encoder.GetBytes(GetString());
         }
 
+        public string GetContent()
+        {
+            throw new NotImplementedException();
+        }
+
         public string GetString()
         {
             return type ?? "*" + "/" + subType ?? "*";
+        }
+
+        public void SetContent(string content)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetFromBytes(byte[] value, Encoding encoder)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetFromString(string value)
+        {
+            throw new NotImplementedException();
         }
     }
 }

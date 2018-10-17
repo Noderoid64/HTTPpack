@@ -9,7 +9,7 @@ namespace Hello.Http.Model
     public class HttpHeaderField  : IParseable
     {
         public string Name { get; private set; }
-        private List<AcceptValue> Values { get; set; }
+        public List<AcceptValue> Values { get; private set; } = new List<AcceptValue>();
 
         public HttpHeaderField(string name, IEnumerable<AcceptValue> values)
         {
@@ -37,6 +37,10 @@ namespace Hello.Http.Model
         {
             Values.Add(value);
         }
+        public void AddValues(IEnumerable<AcceptValue> values)
+        {
+            Values.AddRange(values);
+        }
         public void RemoveValue(int index)
         {
                 Values.Remove(GetValue(index));
@@ -51,7 +55,6 @@ namespace Hello.Http.Model
             }
             return FieldBytes;
         }
-
         public string GetString()
         {
             string FieldString = Name + ": " + Values[0].GetString();
@@ -60,6 +63,16 @@ namespace Hello.Http.Model
                 FieldString += ", " + Values[0].GetString();
             }
             return FieldString;
+        }
+
+        public void SetFromString(string value)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetFromBytes(byte[] value, Encoding encoder)
+        {
+            throw new NotImplementedException();
         }
     }
 }
